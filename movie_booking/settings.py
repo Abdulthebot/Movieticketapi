@@ -35,13 +35,12 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'drf_yasg',
 
-    # Custom apps
-    'core',
-    'users',
-    'movies',
-    'bookings',
+    # Custom apps (now correctly inside the 'apps' package)
+    'apps.core',
+    'apps.users',
+    'apps.movies',
+    'apps.bookings',
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
