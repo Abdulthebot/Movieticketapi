@@ -1,6 +1,6 @@
 import os
 import dj_database_url 
-sys.path.append(str(BASE_DIR))
+
 from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv
@@ -20,6 +20,7 @@ RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 # Application definition
+# THIS IS CORRECT
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -34,10 +35,10 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     # Custom apps
-    'apps.core.apps.CoreConfig',
-    'apps.users.apps.UsersConfig',
-    'apps.movies.apps.MoviesConfig',
-    'apps.bookings.apps.BookingsConfig',
+    'apps.core',
+    'apps.users',
+    'apps.movies',
+    'apps.bookings',
 ]
 
 MIDDLEWARE = [
