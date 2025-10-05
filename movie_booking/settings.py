@@ -1,10 +1,8 @@
 import os
-import dj_database_url 
-
 from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv
-
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,9 +17,8 @@ ALLOWED_HOSTS = []
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
 # Application definition
-# THIS IS CORRECT
-# THIS IS THE CORRECT FIX
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -35,12 +32,13 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'drf_yasg',
 
-    # Custom apps (now correctly inside the 'apps' package)
+    # Custom apps (Correctly prefixed for the 'apps' folder)
     'apps.core',
     'apps.users',
     'apps.movies',
     'apps.bookings',
 ]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -99,10 +97,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # --- Custom Settings ---
 
-# Custom User Model [cite: 331]
+# Custom User Model
 AUTH_USER_MODEL = 'users.User'
 
-# Django REST Framework Settings [cite: 333]
+# Django REST Framework Settings
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
@@ -110,17 +108,17 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
-    # Custom Exception Handler for consistent error responses [cite: 257]
+    # Custom Exception Handler (Correctly prefixed for the 'apps' folder)
     'EXCEPTION_HANDLER': 'apps.core.exceptions.custom_exception_handler',
 }
 
-# Simple JWT Settings [cite: 342]
+# Simple JWT Settings
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 
-# Swagger (drf-yasg) Settings [cite: 347]
+# Swagger (drf-yasg) Settings
 SWAGGER_SETTINGS = {
     'USE_SESSION_AUTH': False,
     'SECURITY_DEFINITIONS': {
