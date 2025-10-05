@@ -21,6 +21,7 @@ if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 # Application definition
 # THIS IS CORRECT
+# THIS IS THE CORRECT FIX
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -35,10 +36,10 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     # Custom apps
-    'apps.core',
-    'apps.users',
-    'apps.movies',
-    'apps.bookings',
+    'core',
+    'users',
+    'movies',
+    'bookings',
 ]
 
 MIDDLEWARE = [
