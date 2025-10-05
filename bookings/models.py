@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from movies.models import Show
+from apps.movies.models import Show
 
 class Booking(models.Model):
     # Using TextChoices for status prevents errors from raw string comparisons[cite: 60].
