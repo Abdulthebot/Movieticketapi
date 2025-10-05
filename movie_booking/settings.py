@@ -1,6 +1,6 @@
 import os
 import dj_database_url 
-import sys
+sys.path.append(str(BASE_DIR))
 from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv
